@@ -1,0 +1,53 @@
+{
+  "encoder": {
+    "model_name": "bert-base-uncased",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "pooling": "cls",
+    "max_length": 128,
+    "batch_size": 32,
+    "device": "auto",
+    "exclude_special_tokens": false,
+    "resolved_revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "dim": 768,
+    "device_used": "cpu",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "do_lower_case": true,
+    "tokenizer_class": "BertTokenizer"
+  },
+  "dim": 768,
+  "n_examples": {
+    "train": 2755,
+    "dev": 115,
+    "test": 2762
+  },
+  "data_sha256": {
+    "train": "d5bdf59dc233a47ad6bfae9831fceb5d8b8ab535dce1886ee85024027a098fcb",
+    "dev": "3cdba20be84a46d2bad3e4abdbd2e421007031ea3d355f048ab82ff135248ca2",
+    "test": "d06f0c2b2b4ac950393559d3c5c005b434ddc5ec7796aed2406339a9fe94bd77"
+  },
+  "data_dir": "data/processed",
+  "stats": {
+    "train": {
+      "n_texts": 2755,
+      "n_truncated": 0,
+      "truncated_frac": 0.0,
+      "seconds": 19.568256721000125,
+      "texts_per_sec": 140.78924041523885
+    },
+    "dev": {
+      "n_texts": 115,
+      "n_truncated": 0,
+      "truncated_frac": 0.0,
+      "seconds": 0.9956206679999013,
+      "texts_per_sec": 115.50583841436625
+    },
+    "test": {
+      "n_texts": 2762,
+      "n_truncated": 0,
+      "truncated_frac": 0.0,
+      "seconds": 19.241508687000078,
+      "texts_per_sec": 143.5438376963683
+    }
+  }
+}
