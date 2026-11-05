@@ -1,3 +1,8 @@
 datasets
 pandas
 matplotlib
+numpy
+scikit-learn==1.9.1
+joblib
+torch
+transformers
