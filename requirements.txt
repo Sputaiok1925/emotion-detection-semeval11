@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+joblib
+scikit-learn==1.9.1
+torch>=2.4
+transformers>=4.44,<5
