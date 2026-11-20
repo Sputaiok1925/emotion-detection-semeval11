@@ -1,0 +1,11 @@
+split,emotion,count,percent
+train,anger,2769,23.79
+train,fear,2608,22.41
+train,joy,2952,25.36
+train,sadness,2464,21.17
+train,surprise,1965,16.88
+test,anger,321,11.63
+test,fear,1540,55.78
+test,joy,670,24.27
+test,sadness,880,31.87
+test,surprise,798,28.9

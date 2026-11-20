@@ -1,0 +1,6 @@
+{
+  "train": 11640,
+  "test": 2761,
+  "test_fraction": 0.19172279702798417,
+  "test_rows_excluded_for_size": 0
+}

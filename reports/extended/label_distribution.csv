@@ -1,0 +1,13 @@
+split,number_of_emotions,texts
+train,0,2159
+train,1,6690
+train,2,2368
+train,3,362
+train,4,59
+train,5,2
+test,0,292
+test,1,1089
+test,2,1061
+test,3,279
+test,4,39
+test,5,1
