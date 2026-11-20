@@ -50,8 +50,9 @@ def validate_split(df, split_name):
 
 def check_overlaps(frames):
     rows = []
-    for i, first in enumerate(SPLITS):
-        for second in SPLITS[i + 1:]:
+    names = list(frames)
+    for i, first in enumerate(names):
+        for second in names[i + 1:]:
             ids = set(frames[first]["id"]) & set(frames[second]["id"])
             texts = set(frames[first]["text"]) & set(frames[second]["text"])
             if ids:
@@ -91,7 +92,7 @@ def calculate_statistics(df, split_name):
 def save_statistics(statistics, overlaps, reports_dir):
     reports_dir = Path(reports_dir)
     summaries, counts, distributions = [], [], []
-    for name in SPLITS:
+    for name in statistics:
         summaries.append(statistics[name]["summary"])
         counts.extend(statistics[name]["counts"])
         distributions.extend(statistics[name]["distribution"])
@@ -121,14 +122,14 @@ def save_statistics(statistics, overlaps, reports_dir):
 def save_processed_data(frames, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    for name in SPLITS:
-        df = frames[name]
+    for name, df in frames.items():
         path = output_dir / f"{name}.csv"
         df.to_csv(path, index=False, encoding="utf-8")
 
 
-def clean_data(frames):
+def clean_data(frames, reports_dir=REPORTS_DIR):
     """Удаляем повторы полных текстов внутри выборок и между ними."""
+    reports_dir = Path(reports_dir)
     cleaned = {}
     summaries = []
     removed = []
@@ -136,6 +137,8 @@ def clean_data(frames):
 
     # Сохраняем примеры test, затем dev, затем train.
     for name in ["test", "dev", "train"]:
+        if name not in frames:
+            continue
         original = frames[name]
         # Оставляем первый пример с таким текстом, независимо от ID и меток.
         df = original.drop_duplicates(subset=["text"], keep="first").copy()
@@ -161,10 +164,10 @@ def clean_data(frames):
                           "overlaps_removed": overlap_count, "after": len(df)})
         assert not df["text"].duplicated().any()
 
-    summary = pd.DataFrame(summaries).set_index("split").loc[SPLITS].reset_index()
-    summary.to_csv(REPORTS_DIR / "cleaning_summary.csv", index=False)
-    pd.concat(removed, ignore_index=True).to_csv(REPORTS_DIR / "removed_rows.csv", index=False)
-    return cleaned, summary
+    summary = pd.DataFrame(summaries).set_index("split").loc[list(frames)].reset_index()
+    summary.to_csv(reports_dir / "cleaning_summary.csv", index=False)
+    pd.concat(removed, ignore_index=True).to_csv(reports_dir / "removed_rows.csv", index=False)
+    return {name: cleaned[name] for name in frames}, summary
 
 
 def main():
