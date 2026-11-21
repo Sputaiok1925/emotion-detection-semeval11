@@ -1,0 +1,54 @@
+{
+  "seed": 44,
+  "best_epoch": 2,
+  "train_seconds": 135.86212035099993,
+  "trainable_parameters": 109486085,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.8078500142763834,
+      "dev_macro_f1_at_0.5": 0.6237175415823387
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5175369593712033,
+      "dev_macro_f1_at_0.5": 0.7244787384748715
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3749771813623702,
+      "dev_macro_f1_at_0.5": 0.7107995968876824
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3013399222585121,
+      "dev_macro_f1_at_0.5": 0.7070070142567498
+    }
+  ],
+  "dev_macro_f1_at_0.5": 0.7244787384748715,
+  "dev_macro_f1_tuned": 0.7564221698268406,
+  "dev_per_emotion_f1_tuned": {
+    "anger": 0.8,
+    "fear": 0.7580645161290323,
+    "joy": 0.7346938775510204,
+    "sadness": 0.7435897435897436,
+    "surprise": 0.7457627118644068
+  },
+  "thresholds": {
+    "anger": 0.55,
+    "fear": 0.6,
+    "joy": 0.8,
+    "sadness": 0.6,
+    "surprise": 0.65
+  },
+  "test_macro_f1_at_0.5": 0.698084402966819,
+  "test_macro_f1_tuned_on_dev": 0.6909463433204307,
+  "test_micro_f1_tuned_on_dev": 0.7239001189060642,
+  "test_per_emotion_f1_tuned_on_dev": {
+    "anger": 0.5699481865284974,
+    "fear": 0.8036829990134824,
+    "joy": 0.6895397489539749,
+    "sadness": 0.7244421380384016,
+    "surprise": 0.6671186440677966
+  }
+}

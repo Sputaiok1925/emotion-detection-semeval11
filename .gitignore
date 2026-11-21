@@ -221,3 +221,5 @@ __marimo__/
 data/
 __pycache__/
 .pytest_cache/
+features/*_ext/
+models/

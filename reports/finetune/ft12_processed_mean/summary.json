@@ -1,0 +1,142 @@
+{
+  "args": {
+    "data_dir": "data/processed",
+    "out_dir": "runs",
+    "tag": null,
+    "model": "bert-base-uncased",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "unfreeze_layers": 12,
+    "pooling": "mean",
+    "epochs": 4,
+    "batch_size": 32,
+    "max_length": 128,
+    "lr_bert": 2e-05,
+    "lr_head": 0.001,
+    "dropout": 0.1,
+    "pos_weight": "balanced",
+    "seeds": "42,43,44",
+    "device": "auto",
+    "eval_test": true,
+    "limit_train": null
+  },
+  "versions": {
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.1"
+  },
+  "data_sha256": {
+    "train": "d5bdf59dc233a47ad6bfae9831fceb5d8b8ab535dce1886ee85024027a098fcb",
+    "dev": "3cdba20be84a46d2bad3e4abdbd2e421007031ea3d355f048ab82ff135248ca2",
+    "test": "d06f0c2b2b4ac950393559d3c5c005b434ddc5ec7796aed2406339a9fe94bd77"
+  },
+  "n_seeds": 3,
+  "dev_macro_f1_at_0.5": {
+    "mean": 0.7215406437421429,
+    "std": 0.00212193803491121
+  },
+  "dev_macro_f1_tuned": {
+    "mean": 0.7574363123838853,
+    "std": 0.010724633388751294
+  },
+  "test_macro_f1_tuned_on_dev": {
+    "mean": 0.7020855369260272,
+    "std": 0.008601017349224188
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "best_epoch": 4,
+      "train_seconds": 136.27028805300006,
+      "trainable_parameters": 109486085,
+      "dev_macro_f1_at_0.5": 0.7195427948608992,
+      "dev_macro_f1_tuned": 0.7710489274565496,
+      "dev_per_emotion_f1_tuned": {
+        "anger": 0.8235294117647058,
+        "fear": 0.7567567567567568,
+        "joy": 0.7692307692307693,
+        "sadness": 0.7733333333333333,
+        "surprise": 0.7323943661971831
+      },
+      "thresholds": {
+        "anger": 0.6,
+        "fear": 0.25,
+        "joy": 0.75,
+        "sadness": 0.4,
+        "surprise": 0.45
+      },
+      "test_macro_f1_at_0.5": 0.708651713440591,
+      "test_macro_f1_tuned_on_dev": 0.7118865665269757,
+      "test_micro_f1_tuned_on_dev": 0.7437065972222222,
+      "test_per_emotion_f1_tuned_on_dev": {
+        "anger": 0.6002886002886003,
+        "fear": 0.8140877598152425,
+        "joy": 0.7153965785381027,
+        "sadness": 0.7198384654215043,
+        "surprise": 0.7098214285714286
+      }
+    },
+    {
+      "seed": 43,
+      "best_epoch": 4,
+      "train_seconds": 133.43537959800005,
+      "trainable_parameters": 109486085,
+      "dev_macro_f1_at_0.5": 0.7206003978906582,
+      "dev_macro_f1_tuned": 0.7448378398682658,
+      "dev_per_emotion_f1_tuned": {
+        "anger": 0.7586206896551724,
+        "fear": 0.7407407407407407,
+        "joy": 0.7450980392156863,
+        "sadness": 0.7297297297297297,
+        "surprise": 0.75
+      },
+      "thresholds": {
+        "anger": 0.75,
+        "fear": 0.1,
+        "joy": 0.8,
+        "sadness": 0.5,
+        "surprise": 0.45
+      },
+      "test_macro_f1_at_0.5": 0.7086188896026474,
+      "test_macro_f1_tuned_on_dev": 0.7034237009306754,
+      "test_micro_f1_tuned_on_dev": 0.7346632346632347,
+      "test_per_emotion_f1_tuned_on_dev": {
+        "anger": 0.5967741935483871,
+        "fear": 0.7848837209302325,
+        "joy": 0.7006578947368421,
+        "sadness": 0.7277542372881356,
+        "surprise": 0.7070484581497798
+      }
+    },
+    {
+      "seed": 44,
+      "best_epoch": 2,
+      "train_seconds": 135.86212035099993,
+      "trainable_parameters": 109486085,
+      "dev_macro_f1_at_0.5": 0.7244787384748715,
+      "dev_macro_f1_tuned": 0.7564221698268406,
+      "dev_per_emotion_f1_tuned": {
+        "anger": 0.8,
+        "fear": 0.7580645161290323,
+        "joy": 0.7346938775510204,
+        "sadness": 0.7435897435897436,
+        "surprise": 0.7457627118644068
+      },
+      "thresholds": {
+        "anger": 0.55,
+        "fear": 0.6,
+        "joy": 0.8,
+        "sadness": 0.6,
+        "surprise": 0.65
+      },
+      "test_macro_f1_at_0.5": 0.698084402966819,
+      "test_macro_f1_tuned_on_dev": 0.6909463433204307,
+      "test_micro_f1_tuned_on_dev": 0.7239001189060642,
+      "test_per_emotion_f1_tuned_on_dev": {
+        "anger": 0.5699481865284974,
+        "fear": 0.8036829990134824,
+        "joy": 0.6895397489539749,
+        "sadness": 0.7244421380384016,
+        "surprise": 0.6671186440677966
+      }
+    }
+  ]
+}
