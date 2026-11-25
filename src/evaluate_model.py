@@ -6,11 +6,12 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.metrics import classification_report, f1_score, multilabel_confusion_matrix
+from sklearn.metrics import multilabel_confusion_matrix
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from classifier import EmotionClassifier, EMOTIONS
+from evaluation import evaluate
 
 FEATURES = ROOT / "features/bert-base-uncased_len128/mean"
 MODEL = ROOT / "models/logreg_mean.joblib"
@@ -25,19 +26,10 @@ def evaluate_test(model):
     probabilities = model.predict_proba(X)
     predicted = (probabilities >= model.thresholds).astype(int)
     actual = df[EMOTIONS].to_numpy()
-    report = classification_report(actual, predicted, target_names=EMOTIONS,
-                                   output_dict=True, zero_division=0)
-    print(classification_report(actual, predicted, target_names=EMOTIONS,
-                                digits=4, zero_division=0))
-    metrics = {"macro_f1": f1_score(actual, predicted, average="macro"),
-               "micro_f1": f1_score(actual, predicted, average="micro"),
-               "exact_match": float((actual == predicted).all(axis=1).mean()),
-               "model": str(MODEL.relative_to(ROOT)),
-               "thresholds": model.thresholds.tolist()}
     out = ROOT / "reports/evaluation"
-    out.mkdir(parents=True, exist_ok=True)
+    metrics = evaluate(actual, probabilities, model.thresholds, output_dir=out)
+    metrics.update(model=str(MODEL.relative_to(ROOT)), thresholds=model.thresholds.tolist())
     (out / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
-    pd.DataFrame(report).T.to_csv(out / "classification_report.csv")
     rows = df[["id", "text"]].copy()
     for i, emotion in enumerate(EMOTIONS):
         rows[emotion + "_true"] = actual[:, i]
