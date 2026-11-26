@@ -1,0 +1,22 @@
+{
+  "macro_f1": 0.3698926536885362,
+  "micro_f1": 0.38366469639978507,
+  "exact_match": 0.2238319449474828,
+  "anger": 0.37727272727272726,
+  "fear": 0.261114237478897,
+  "joy": 0.4754953076120959,
+  "sadness": 0.6199740596627756,
+  "surprise": 0.11560693641618497,
+  "model": "SamLowe/roberta-base-go_emotions",
+  "revision": null,
+  "thresholds": {
+    "anger": 0.05,
+    "fear": 0.05,
+    "joy": 0.05,
+    "sadness": 0.05,
+    "surprise": 0.15
+  },
+  "data_dir": "C:\\Users\\sputa\\PycharmProjects\\emotion-detection-semeval11\\data\\extended",
+  "max_length": 128,
+  "dev_macro_f1": 0.3459543376784756
+}

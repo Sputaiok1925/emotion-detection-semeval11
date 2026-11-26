@@ -1,0 +1,18 @@
+{
+  "model": "FacebookAI/roberta-base",
+  "revision": null,
+  "data_dir": "C:\\Users\\sputa\\PycharmProjects\\emotion-detection-semeval11\\data\\extended",
+  "unfreeze_layers": 12,
+  "epochs": 4,
+  "batch_size": 8,
+  "accumulation": 4,
+  "max_length": 128,
+  "lr_encoder": 2e-05,
+  "lr_head": 0.001,
+  "seed": 42,
+  "device": "cuda",
+  "run_dir": null,
+  "report_dir": null,
+  "train_only": false,
+  "eval_only": false
+}

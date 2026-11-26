@@ -1,0 +1,23 @@
+{
+  "macro_f1": 0.7132228937882094,
+  "micro_f1": 0.745102260495156,
+  "exact_match": 0.4139804418688881,
+  "anger": 0.5903083700440529,
+  "fear": 0.8254263565891473,
+  "joy": 0.6999405822935235,
+  "sadness": 0.751269035532995,
+  "surprise": 0.6991701244813278,
+  "model": "FacebookAI/roberta-base",
+  "revision": null,
+  "seed": 42,
+  "best_epoch": 3,
+  "thresholds": {
+    "anger": 0.5,
+    "fear": 0.7,
+    "joy": 0.25,
+    "sadness": 0.7,
+    "surprise": 0.5
+  },
+  "dev_macro_f1": 0.7664849937236106,
+  "data_dir": "C:\\Users\\sputa\\PycharmProjects\\emotion-detection-semeval11\\data\\extended"
+}
